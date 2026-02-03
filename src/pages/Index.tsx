@@ -55,7 +55,6 @@ const Index = () => {
 
         {/* Profile Section */}
         <ProfileSection 
-          name={profileName} 
           bio={profileBio}
         />
 
