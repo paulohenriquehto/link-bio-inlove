@@ -4,6 +4,7 @@ import SocialIcons from "@/components/links/SocialIcons";
 import Footer from "@/components/links/Footer";
 import { useLinks, useSocialLinks, useSettings, useTrackClick } from "@/hooks/useLinks";
 import { Skeleton } from "@/components/ui/skeleton";
+import inloveLogo from "@/assets/inlove-logo.jpg";
 
 const Index = () => {
   const { data: links, isLoading: linksLoading } = useLinks();
@@ -56,6 +57,7 @@ const Index = () => {
         <ProfileSection 
           name={profileName} 
           bio={profileBio}
+          logoUrl={inloveLogo}
         />
 
         {/* Links List */}
