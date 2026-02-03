@@ -49,7 +49,7 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
         "text-foreground font-semibold transition-all duration-300 ease-out",
         "shadow-sm hover:shadow-hover hover:-translate-y-1 active:scale-[0.98]",
         isFeatured 
-          ? "bg-accent text-accent-foreground border-none animate-pulse-border hover:bg-accent/90" 
+          ? "bg-primary text-primary-foreground border-none animate-pulse-border hover:bg-primary/90" 
           : "bg-card border border-border hover:border-primary"
       )}
       style={{ animationDelay: `${delay}ms` }}
