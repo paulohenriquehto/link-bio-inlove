@@ -8,7 +8,7 @@ interface LinkButtonProps {
   url: string;
   icon: string;
   isFeatured?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   delay?: number;
 }
 
@@ -41,15 +41,16 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
     return "site";
   };
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // Track the click in Google Analytics
     trackLinkClick(title, url, getLinkCategory());
     
     // Call onClick for additional tracking (like database click count)
+    // Pass the event so parent can preventDefault if needed (e.g., WhatsApp)
     if (onClick) {
-      onClick();
+      onClick(e);
     }
-    // Let the default link behavior happen (no preventDefault)
+    // Let the default link behavior happen (no preventDefault) unless parent prevented it
   };
   
   // Add UTM parameters to the URL
