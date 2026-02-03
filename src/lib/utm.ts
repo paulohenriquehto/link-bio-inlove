@@ -107,8 +107,10 @@ export const addUtmParams = (url: string, linkTitle: string): string => {
     return url;
   }
 
-  // For WhatsApp links, we need to handle the existing query params
-  const isWhatsAppLink = url.includes('wa.me');
+  // For WhatsApp links, don't add UTM params (they already have the text param)
+  if (url.includes('wa.me')) {
+    return url;
+  }
   
   try {
     const urlObj = new URL(url);
