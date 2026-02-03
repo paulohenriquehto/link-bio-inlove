@@ -19,7 +19,7 @@ const Index = () => {
     trackClick.mutate(linkId);
     
     // Handle WhatsApp link - prevent default and open with correct URL
-    if (url.includes("wa.me") && settings?.whatsapp_message) {
+    if (url.includes("wa.me")) {
       e.preventDefault();
       
       // Ensure URL has protocol
@@ -28,10 +28,13 @@ const Index = () => {
         baseUrl = "https://" + baseUrl;
       }
       
-      // Use URL API to properly set/replace the text parameter (never duplicates)
       try {
         const urlObj = new URL(baseUrl);
-        urlObj.searchParams.set("text", settings.whatsapp_message);
+        // If URL already has a text parameter, use it (per-link message)
+        // Otherwise, fall back to global whatsapp_message setting
+        if (!urlObj.searchParams.has("text") && settings?.whatsapp_message) {
+          urlObj.searchParams.set("text", settings.whatsapp_message);
+        }
         window.open(urlObj.toString(), "_blank", "noopener,noreferrer");
       } catch {
         // Fallback: just open the base URL if URL parsing fails
