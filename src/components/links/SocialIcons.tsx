@@ -1,4 +1,5 @@
-import { FaInstagram, FaTiktok, FaFacebookF, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaFacebookF } from "react-icons/fa6";
+import { FaRegEnvelope } from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
 interface SocialLink {
@@ -16,15 +17,15 @@ const iconMap: Record<string, IconType> = {
   instagram: FaInstagram,
   tiktok: FaTiktok,
   facebook: FaFacebookF,
-  mail: FaEnvelope,
-  envelope: FaEnvelope,
+  mail: FaRegEnvelope,
+  envelope: FaRegEnvelope,
 };
 
 const SocialIcons = ({ links }: SocialIconsProps) => {
   return (
     <div className="mt-10 flex justify-center gap-5">
       {links.map((link) => {
-        const IconComponent = iconMap[link.icon] || FaEnvelope;
+        const IconComponent = iconMap[link.icon] || FaRegEnvelope;
         return (
           <a
             key={link.id}
