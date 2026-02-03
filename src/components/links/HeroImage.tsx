@@ -2,7 +2,7 @@ import heroRings from "@/assets/hero-rings.png";
 
 const HeroImage = () => {
   return (
-    <div className="w-full -mt-10 -mx-10 relative">
+    <div className="w-[calc(100%+5rem)] -mt-10 -ml-10 -mr-10 relative">
       <img
         src={heroRings}
         alt="Alianças InLove Store"
