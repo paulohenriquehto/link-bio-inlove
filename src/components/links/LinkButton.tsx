@@ -48,9 +48,11 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
         "opacity-0 animate-fade-in-up relative flex items-center justify-between px-6 py-5 rounded-btn",
         "text-foreground font-semibold transition-all duration-300 ease-out",
         "shadow-sm hover:shadow-hover hover:-translate-y-1 active:scale-[0.98]",
-        isFeatured 
-          ? "bg-primary text-primary-foreground border-none animate-pulse-border hover:bg-primary/90" 
-          : "bg-card border border-border hover:border-primary"
+        icon === "whatsapp" || icon === "message-circle"
+          ? "bg-[#25D366] text-white border-none hover:bg-[#20BD5A]"
+          : isFeatured 
+            ? "bg-primary text-primary-foreground border-none animate-pulse-border hover:bg-primary/90" 
+            : "bg-card border border-border hover:border-primary"
       )}
       style={{ animationDelay: `${delay}ms` }}
     >
