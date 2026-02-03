@@ -41,14 +41,15 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
     return "site";
   };
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = () => {
     // Track the click in Google Analytics
     trackLinkClick(title, url, getLinkCategory());
     
+    // Call onClick for additional tracking (like database click count)
     if (onClick) {
-      e.preventDefault();
       onClick();
     }
+    // Let the default link behavior happen (no preventDefault)
   };
   
   // Add UTM parameters to the URL
