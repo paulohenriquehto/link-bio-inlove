@@ -1,4 +1,4 @@
-import { FaChevronRight, FaFire, FaGlobe, FaGem, FaTag, FaWhatsapp, FaTruck, FaLink } from "react-icons/fa";
+import { FaStar, FaStore, FaRing, FaTag, FaWhatsapp, FaTruckFast, FaLink, FaChevronRight } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import type { IconType } from "react-icons";
 
@@ -12,15 +12,19 @@ interface LinkButtonProps {
 }
 
 const iconMap: Record<string, IconType> = {
-  fire: FaFire,
-  sparkles: FaFire,
-  globe: FaGlobe,
-  gem: FaGem,
+  star: FaStar,
+  fire: FaStar,
+  sparkles: FaStar,
+  store: FaStore,
+  globe: FaStore,
+  ring: FaRing,
+  gem: FaRing,
   tag: FaTag,
   whatsapp: FaWhatsapp,
   "message-circle": FaWhatsapp,
-  truck: FaTruck,
-  package: FaTruck,
+  "truck-fast": FaTruckFast,
+  truck: FaTruckFast,
+  package: FaTruckFast,
   link: FaLink,
 };
 

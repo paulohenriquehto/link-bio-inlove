@@ -1,4 +1,4 @@
-import { FaCertificate, FaCheck } from "react-icons/fa";
+import { FaCertificate, FaCheck } from "react-icons/fa6";
 
 interface ProfileSectionProps {
   name: string;
