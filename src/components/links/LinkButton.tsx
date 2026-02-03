@@ -1,5 +1,6 @@
-import { ChevronRight, Sparkles, Globe, Gem, Tag, MessageCircle, Package, Link as LinkIcon } from "lucide-react";
+import { FaChevronRight, FaFire, FaGlobe, FaGem, FaTag, FaWhatsapp, FaTruck, FaLink } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import type { IconType } from "react-icons";
 
 interface LinkButtonProps {
   title: string;
@@ -10,18 +11,21 @@ interface LinkButtonProps {
   delay?: number;
 }
 
-const iconMap: Record<string, React.ElementType> = {
-  sparkles: Sparkles,
-  globe: Globe,
-  gem: Gem,
-  tag: Tag,
-  "message-circle": MessageCircle,
-  package: Package,
-  link: LinkIcon,
+const iconMap: Record<string, IconType> = {
+  fire: FaFire,
+  sparkles: FaFire,
+  globe: FaGlobe,
+  gem: FaGem,
+  tag: FaTag,
+  whatsapp: FaWhatsapp,
+  "message-circle": FaWhatsapp,
+  truck: FaTruck,
+  package: FaTruck,
+  link: FaLink,
 };
 
 const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }: LinkButtonProps) => {
-  const IconComponent = iconMap[icon] || LinkIcon;
+  const IconComponent = iconMap[icon] || FaLink;
 
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) {
@@ -39,7 +43,7 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
       className={cn(
         "opacity-0 animate-fade-in-up relative flex items-center justify-between px-6 py-5 rounded-btn",
         "text-foreground font-semibold transition-all duration-300 ease-out",
-        "shadow-sm hover:shadow-hover hover:-translate-y-1",
+        "shadow-sm hover:shadow-hover hover:-translate-y-1 active:scale-[0.98]",
         isFeatured 
           ? "bg-accent text-accent-foreground border-none animate-pulse-border hover:bg-accent/90" 
           : "bg-card border border-border hover:border-primary"
@@ -48,7 +52,7 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
     >
       <IconComponent className="w-5 h-5 shrink-0" />
       <span className="flex-1 text-center">{title}</span>
-      <ChevronRight className="w-4 h-4 opacity-50 shrink-0" />
+      <FaChevronRight className="w-3 h-3 opacity-50 shrink-0" />
     </a>
   );
 };
