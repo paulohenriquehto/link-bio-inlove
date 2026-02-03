@@ -5,7 +5,6 @@ import Footer from "@/components/links/Footer";
 import DecorativeBackground from "@/components/links/DecorativeBackground";
 import { useLinks, useSocialLinks, useSettings, useTrackClick } from "@/hooks/useLinks";
 import { Skeleton } from "@/components/ui/skeleton";
-import inloveLogo from "@/assets/inlove-logo.jpg";
 
 const Index = () => {
   const { data: links, isLoading: linksLoading } = useLinks();
@@ -52,16 +51,12 @@ const Index = () => {
       {/* Decorative Background */}
       <DecorativeBackground />
       
-      {/* Main container */}
-      <div className="w-full max-w-md bg-card rounded-card shadow-elegant p-10 text-center relative overflow-hidden">
-        {/* Decorative top border */}
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent to-primary" />
-
+      {/* Main container with 3D effect */}
+      <div className="w-full max-w-md bg-card rounded-card p-10 text-center relative overflow-hidden transform-gpu shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15),0_10px_20px_-10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)] border border-white/20 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2),0_15px_25px_-10px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] transition-shadow duration-300">
         {/* Profile Section */}
         <ProfileSection 
           name={profileName} 
           bio={profileBio}
-          logoUrl={inloveLogo}
         />
 
         {/* Links List */}
