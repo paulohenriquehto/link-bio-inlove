@@ -14,15 +14,29 @@ const Index = () => {
 
   const isLoading = linksLoading || socialLoading || settingsLoading;
 
-  const handleLinkClick = (linkId: string, url: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, linkId: string, url: string) => {
+    // Always track the click
     trackClick.mutate(linkId);
     
-    // Handle WhatsApp link
+    // Handle WhatsApp link - prevent default and open with correct URL
     if (url.includes("wa.me") && settings?.whatsapp_message) {
-      const message = encodeURIComponent(settings.whatsapp_message);
-      const whatsappUrl = `${url}?text=${message}`;
-      window.open(whatsappUrl, "_blank");
-      return;
+      e.preventDefault();
+      
+      // Ensure URL has protocol
+      let baseUrl = url;
+      if (!baseUrl.startsWith("http://") && !baseUrl.startsWith("https://")) {
+        baseUrl = "https://" + baseUrl;
+      }
+      
+      // Use URL API to properly set/replace the text parameter (never duplicates)
+      try {
+        const urlObj = new URL(baseUrl);
+        urlObj.searchParams.set("text", settings.whatsapp_message);
+        window.open(urlObj.toString(), "_blank", "noopener,noreferrer");
+      } catch {
+        // Fallback: just open the base URL if URL parsing fails
+        window.open(baseUrl, "_blank", "noopener,noreferrer");
+      }
     }
   };
 
@@ -69,7 +83,7 @@ const Index = () => {
               icon={link.icon}
               isFeatured={link.is_featured}
               delay={(index + 1) * 100}
-              onClick={() => handleLinkClick(link.id, link.url)}
+              onClick={(e) => handleLinkClick(e, link.id, link.url)}
             />
           ))}
         </div>
