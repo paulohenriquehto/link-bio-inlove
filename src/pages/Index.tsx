@@ -44,7 +44,7 @@ const Index = () => {
   }
 
   const profileName = settings?.profile_name || "InLove Store";
-  const profileBio = settings?.profile_bio || "Moda, Alianças e Acessórios ✨\nEnviamos para todo o Brasil 🇧🇷";
+  const profileBio = settings?.profile_bio || "A maior loja online de Alianças para Casamento, Noivado e Compromisso 💍";
 
   return (
     <div className="min-h-screen flex justify-center items-center p-5 bg-background">
@@ -55,6 +55,7 @@ const Index = () => {
 
         {/* Profile Section */}
         <ProfileSection 
+          name={profileName}
           bio={profileBio}
         />
 
