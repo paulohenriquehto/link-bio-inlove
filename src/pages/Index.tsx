@@ -2,6 +2,7 @@ import ProfileSection from "@/components/links/ProfileSection";
 import LinkButton from "@/components/links/LinkButton";
 import SocialIcons from "@/components/links/SocialIcons";
 import Footer from "@/components/links/Footer";
+import DecorativeBackground from "@/components/links/DecorativeBackground";
 import { useLinks, useSocialLinks, useSettings, useTrackClick } from "@/hooks/useLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 import inloveLogo from "@/assets/inlove-logo.jpg";
@@ -47,7 +48,10 @@ const Index = () => {
   const profileBio = settings?.profile_bio || "Moda, Alianças e Acessórios ✨\nEnviamos para todo o Brasil 🇧🇷";
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-5 bg-gradient-to-br from-secondary/30 to-background">
+    <div className="min-h-screen flex justify-center items-center p-5 bg-gradient-to-br from-secondary/30 to-background relative">
+      {/* Decorative Background */}
+      <DecorativeBackground />
+      
       {/* Main container */}
       <div className="w-full max-w-md bg-card rounded-card shadow-elegant p-10 text-center relative overflow-hidden">
         {/* Decorative top border */}
