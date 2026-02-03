@@ -1,5 +1,6 @@
 import { FaStar, FaStore, FaRing, FaTag, FaWhatsapp, FaTruckFast, FaLink, FaChevronRight } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
+import { addUtmParams, trackLinkClick } from "@/lib/utm";
 import type { IconType } from "react-icons";
 
 interface LinkButtonProps {
@@ -30,17 +31,32 @@ const iconMap: Record<string, IconType> = {
 
 const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }: LinkButtonProps) => {
   const IconComponent = iconMap[icon] || FaLink;
+  
+  // Determine link category for analytics
+  const getLinkCategory = (): string => {
+    if (icon === "whatsapp" || icon === "message-circle") return "atendimento";
+    if (title.toLowerCase().includes("outlet")) return "outlet";
+    if (title.toLowerCase().includes("coleção")) return "colecao";
+    if (title.toLowerCase().includes("rastrear")) return "rastreio";
+    return "site";
+  };
 
   const handleClick = (e: React.MouseEvent) => {
+    // Track the click in Google Analytics
+    trackLinkClick(title, url, getLinkCategory());
+    
     if (onClick) {
       e.preventDefault();
       onClick();
     }
   };
+  
+  // Add UTM parameters to the URL
+  const urlWithUtm = addUtmParams(url, title);
 
   return (
     <a
-      href={url}
+      href={urlWithUtm}
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
