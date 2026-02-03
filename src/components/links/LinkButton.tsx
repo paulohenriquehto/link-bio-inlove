@@ -56,6 +56,16 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
 
   // Determine if this is a WhatsApp link
   const isWhatsApp = icon === "whatsapp" || icon === "message-circle";
+  
+  // Determine if this is an outlet/promo link
+  const isOutlet = icon === "tag";
+
+  // Get icon color based on type
+  const getIconColor = (): string | undefined => {
+    if (isWhatsApp) return "#25D366";
+    if (isOutlet) return "#D4A373";
+    return undefined;
+  };
 
   return (
     <a
@@ -71,10 +81,10 @@ const LinkButton = ({ title, url, icon, isFeatured = false, onClick, delay = 0 }
       )}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <IconComponent className={cn(
-        "w-5 h-5 shrink-0",
-        isWhatsApp && "text-[#25D366]"
-      )} />
+      <IconComponent 
+        className="w-5 h-5 shrink-0"
+        style={{ color: getIconColor() }}
+      />
       <span className="flex-1 text-center text-sm">{title}</span>
       <FaChevronRight className="w-3 h-3 opacity-40 shrink-0" />
     </a>
