@@ -2,7 +2,7 @@ import ProfileSection from "@/components/links/ProfileSection";
 import LinkButton from "@/components/links/LinkButton";
 import SocialIcons from "@/components/links/SocialIcons";
 import Footer from "@/components/links/Footer";
-import DecorativeBackground from "@/components/links/DecorativeBackground";
+import HeroImage from "@/components/links/HeroImage";
 import { useLinks, useSocialLinks, useSettings, useTrackClick } from "@/hooks/useLinks";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -28,9 +28,9 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex justify-center items-center p-5 bg-gradient-to-br from-secondary/30 to-background">
+      <div className="min-h-screen flex justify-center items-center p-5 bg-background">
         <div className="w-full max-w-md bg-card rounded-card shadow-elegant p-10 text-center">
-          <Skeleton className="w-28 h-28 rounded-full mx-auto mb-4" />
+          <Skeleton className="w-full h-48 rounded-t-card mb-4" />
           <Skeleton className="h-8 w-40 mx-auto mb-2" />
           <Skeleton className="h-4 w-60 mx-auto mb-8" />
           <div className="space-y-4">
@@ -47,12 +47,12 @@ const Index = () => {
   const profileBio = settings?.profile_bio || "Moda, Alianças e Acessórios ✨\nEnviamos para todo o Brasil 🇧🇷";
 
   return (
-    <div className="min-h-screen flex justify-center items-center p-5 bg-gradient-to-br from-secondary/30 to-background relative">
-      {/* Decorative Background */}
-      <DecorativeBackground />
-      
+    <div className="min-h-screen flex justify-center items-center p-5 bg-background">
       {/* Main container with 3D effect */}
       <div className="w-full max-w-md bg-card rounded-card p-10 text-center relative overflow-hidden transform-gpu shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15),0_10px_20px_-10px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.6)] border border-white/20 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.2),0_15px_25px_-10px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.6)] transition-shadow duration-300">
+        {/* Hero Image */}
+        <HeroImage />
+
         {/* Profile Section */}
         <ProfileSection 
           name={profileName} 
