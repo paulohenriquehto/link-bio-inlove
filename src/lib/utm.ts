@@ -18,11 +18,9 @@ const campaignMap: Record<string, string> = {
   'outlet & promoções': 'outlet',
   'outlet': 'outlet',
   'promoções': 'outlet',
-  'atendimento loja sp': 'atendimento',
-  'atendimento loja df': 'atendimento',
+  'geral: atendimento inlove': 'atendimento',
+  'chame no whatsapp': 'atendimento',
   'whatsapp': 'atendimento',
-  'rastrear meu pedido': 'rastreio',
-  'rastrear': 'rastreio',
 };
 
 // Map link titles to content identifiers
@@ -36,11 +34,9 @@ const contentMap: Record<string, string> = {
   'outlet & promoções': 'botao_outlet',
   'outlet': 'botao_outlet',
   'promoções': 'botao_promocoes',
-  'atendimento loja sp': 'whatsapp_loja_sp',
-  'atendimento loja df': 'whatsapp_loja_df',
+  'geral: atendimento inlove': 'whatsapp_geral_inlove',
+  'chame no whatsapp': 'whatsapp_geral_inlove',
   'whatsapp': 'whatsapp',
-  'rastrear meu pedido': 'botao_rastreio',
-  'rastrear': 'botao_rastreio',
 };
 
 /**

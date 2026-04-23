@@ -91,8 +91,7 @@ INSERT INTO public.links (title, url, icon, is_featured, position) VALUES
 ('Site Oficial', '#', 'globe', false, 2),
 ('Alianças & Joias', '#', 'gem', false, 3),
 ('Outlet & Promoções', '#', 'tag', false, 4),
-('Atendimento WhatsApp', 'https://wa.me/5500000000000', 'message-circle', false, 5),
-('Rastrear Meu Pedido', '#', 'package', false, 6);
+('Geral: Atendimento InLove', 'https://wa.me/5500000000000', 'message-circle', false, 5);
 
 -- Configurações iniciais
 INSERT INTO public.settings (key, value) VALUES
