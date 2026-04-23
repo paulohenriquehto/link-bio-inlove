@@ -28,7 +28,11 @@ const SocialIcons = ({ links }: SocialIconsProps) => {
   };
 
   return (
-    <div className="mt-10 flex justify-center gap-5">
+    <div className="mt-10">
+      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60 mb-4">
+        Nossas Redes Sociais
+      </p>
+      <div className="flex justify-center gap-5">
       {links.map((link) => {
         const IconComponent = iconMap[link.icon] || FaRegEnvelope;
         const urlWithUtm = addSocialUtmParams(link.url, link.platform);
@@ -47,6 +51,7 @@ const SocialIcons = ({ links }: SocialIconsProps) => {
           </a>
         );
       })}
+      </div>
     </div>
   );
 };

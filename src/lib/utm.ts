@@ -9,38 +9,29 @@ interface UtmParams {
 
 // Map link titles to campaign names
 const campaignMap: Record<string, string> = {
-  'ver nova coleção': 'colecao',
-  'nova coleção': 'colecao',
+  'aliancas de prata': 'produtos',
+  'alianca de casamento': 'produtos',
   'site oficial': 'site',
-  'alianças & joias': 'produtos',
-  'alianças': 'produtos',
-  'joias': 'produtos',
-  'outlet & promoções': 'outlet',
+  'aliancas & joias': 'produtos',
+  'aliancas': 'produtos',
+  'outlet & promocoes': 'outlet',
   'outlet': 'outlet',
-  'promoções': 'outlet',
-  'atendimento loja sp': 'atendimento',
-  'atendimento loja df': 'atendimento',
+  'geral: atendimento inlove': 'atendimento',
+  'atendimento inlove': 'atendimento',
   'whatsapp': 'atendimento',
-  'rastrear meu pedido': 'rastreio',
-  'rastrear': 'rastreio',
 };
 
 // Map link titles to content identifiers
 const contentMap: Record<string, string> = {
-  'ver nova coleção': 'botao_nova_colecao',
-  'nova coleção': 'botao_nova_colecao',
+  'aliancas de prata': 'botao_aliancas_prata',
+  'alianca de casamento': 'botao_alianca_casamento',
   'site oficial': 'botao_site_oficial',
-  'alianças & joias': 'botao_aliancas',
-  'alianças': 'botao_aliancas',
-  'joias': 'botao_joias',
-  'outlet & promoções': 'botao_outlet',
+  'aliancas & joias': 'botao_aliancas_joias',
+  'outlet & promocoes': 'botao_outlet',
   'outlet': 'botao_outlet',
-  'promoções': 'botao_promocoes',
-  'atendimento loja sp': 'whatsapp_loja_sp',
-  'atendimento loja df': 'whatsapp_loja_df',
+  'geral: atendimento inlove': 'whatsapp_geral',
+  'atendimento inlove': 'whatsapp_geral',
   'whatsapp': 'whatsapp',
-  'rastrear meu pedido': 'botao_rastreio',
-  'rastrear': 'botao_rastreio',
 };
 
 /**

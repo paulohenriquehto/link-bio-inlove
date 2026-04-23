@@ -1,73 +1,66 @@
-# Welcome to your Lovable project
+# InLove Store — Link na Bio
 
-## Project info
+Link na bio estático da **InLove Store**, loja de alianças e acessórios. Desenvolvido em React + Vite + Tailwind CSS, sem backend ou banco de dados.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Stack
 
-## How can I edit this code?
+- **React 18** + TypeScript
+- **Vite** (bundler)
+- **Tailwind CSS** + Shadcn UI
+- **React Icons** (ícones)
+- **React Router** (navegação)
 
-There are several ways of editing your application.
+## Rodando localmente
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+bun install
+bun run dev
 ```
 
-**Edit a file directly in GitHub**
+Acesse `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Build para produção
 
-**Use GitHub Codespaces**
+```bash
+bun run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Os arquivos gerados ficam em `dist/`.
 
-## What technologies are used for this project?
+## Editando os links
 
-This project is built with:
+Todos os links, redes sociais e textos de perfil estão centralizados em:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/data/content.ts
+```
 
-## How can I deploy this project?
+Basta editar esse arquivo para alterar URLs, títulos, ícones ou adicionar novos links. Após editar, rode `bun run build` para gerar a versão atualizada.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Estrutura do arquivo
 
-## Can I connect a custom domain to my Lovable project?
+```ts
+// Texto do perfil
+export const PROFILE = { name, bio }
 
-Yes, you can!
+// Botões de link
+export const LINKS = [{ id, title, url, icon, isFeatured }]
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+// Ícones de redes sociais
+export const SOCIAL_LINKS = [{ id, platform, url, icon }]
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Ícones disponíveis
+
+| Valor       | Ícone exibido |
+|-------------|---------------|
+| `ring`      | Aliança / anel |
+| `store`     | Loja / site |
+| `tag`       | Promoção / outlet |
+| `whatsapp`  | WhatsApp (verde) |
+| `star`      | Estrela / destaque |
+| `link`      | Link genérico |
+
+## Rastreamento (Google Analytics)
+
+Os cliques nos links e ícones sociais são enviados ao Google Analytics via `gtag` com parâmetros UTM. Nenhuma configuração extra é necessária além do script do GA já presente no `index.html`.
